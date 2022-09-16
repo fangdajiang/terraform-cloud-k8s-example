@@ -1,3 +1,12 @@
+variable "TF_REQUIRED_PROVIDER_SOURCE" {
+  default = "aliyun/alicloud"
+}
+variable "TF_REQUIRED_PROVIDER_VERSION" {
+  default = "1.185.0"
+}
+variable "TF_REQUIRED_VERSION" {
+  default = ">= 0.12"
+}
 variable "ALICLOUD_ACCESS_KEY" {
   default = ""
 }

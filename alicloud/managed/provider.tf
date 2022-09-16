@@ -1,13 +1,15 @@
 terraform {
   required_providers {
     alicloud = {
-      source = "aliyun/alicloud"
-      version = "1.185.0"
+      source = var.TF_REQUIRED_PROVIDER_SOURCE
+      version = var.TF_REQUIRED_PROVIDER_VERSION
     }
   }
-  required_version = ">= 0.12"
+  required_version = var.TF_REQUIRED_VERSION
 }
 provider "alicloud" {
+  access_key = var.ALICLOUD_ACCESS_KEY
+  secret_key = var.ALICLOUD_SECRET_KEY
   region = var.ALICLOUD_REGION
   profile = var.ALICLOUD_PROFILE
 }
