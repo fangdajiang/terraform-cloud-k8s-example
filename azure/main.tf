@@ -1,11 +1,15 @@
 # Create a resource group
 resource "azurerm_resource_group" "k8s" {
-  name     = var.resource_group_name
-  location = var.location
+  name     = data.azurerm_resource_group.rg.name
+  location = data.azurerm_resource_group.rg.location
   tags = {
     environment = var.environment
     owner = var.owner
   }
+}
+data "azurerm_resource_group" "rg" {
+  name = var.resource_group_name
+#  location = var.location
 }
 # Create a virtual network within the resource group
 resource "azurerm_virtual_network" "k8s" {
@@ -67,8 +71,9 @@ resource "azurerm_storage_account" "sa" {
 resource "random_id" "id" {
   byte_length = 4
 }
-
+# Common variables shared by multiple resources
 locals {
   storage_account_name = "terraformstate${lower(random_id.id.hex)}"
   vm_public_dns        = "tfvm-${random_id.id.hex}"
+  instance_id          = data.azurerm_resource_group.rg.tags["instance_id"]
 }

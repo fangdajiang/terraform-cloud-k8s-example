@@ -6,6 +6,7 @@ terraform {
     }
   }
   required_version = var.TF_REQUIRED_VERSION
+  backend "azurerm" {}
 }
 provider "azurerm" {
 #  access_key = var.ALICLOUD_ACCESS_KEY
@@ -14,6 +15,7 @@ provider "azurerm" {
 #  profile = var.ALICLOUD_PROFILE
   features {}
   version = "=1.5.0"
+  subscription_id = var.env_subscription_id
 }
 provider "kubernetes" {
   host                   = azurerm_kubernetes_cluster.k8s.kube_config[0].host

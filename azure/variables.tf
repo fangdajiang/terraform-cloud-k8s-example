@@ -2,15 +2,21 @@ variable "TF_REQUIRED_PROVIDER_SOURCE" {
   default = "hashicorp/azurerm"
 }
 variable "TF_REQUIRED_PROVIDER_VERSION" {
-  default = "~> 3.23.0"
+  default = "~> 2"
 }
 variable "TF_REQUIRED_VERSION" {
-  default = ">= 0.12"
+  default = ">= 1.0.1"
 }
 
 variable "resource_group_name" {
+  description = "(Required) The name of the resource group for this project."
   type    = string
-  default = "youtube-audio-resources"
+  default = "YouTube-Audio"
+}
+
+variable "env_subscription_id" {
+  description = "(Required) The Azure subscription ID for the solution environment."
+  type        = string
 }
 
 variable "location" {
