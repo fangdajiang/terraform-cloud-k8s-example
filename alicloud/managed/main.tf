@@ -102,6 +102,8 @@ resource "alicloud_instance" "jumper" {
   instance_charge_type = "PostPaid"
   internet_charge_type = "PayByTraffic"
 
+  user_data = file("cloud_init.sh")
+
   provisioner "file" {
     source      = var.key_path
     destination = "/root/.ssh/id_rsa"

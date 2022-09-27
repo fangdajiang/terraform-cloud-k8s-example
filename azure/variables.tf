@@ -1,12 +1,3 @@
-variable "TF_REQUIRED_PROVIDER_SOURCE" {
-  default = "hashicorp/azurerm"
-}
-variable "TF_REQUIRED_PROVIDER_VERSION" {
-  default = "~> 2"
-}
-variable "TF_REQUIRED_VERSION" {
-  default = ">= 1.0.1"
-}
 
 variable "resource_group_name" {
   description = "(Required) The name of the resource group for this project."
@@ -33,9 +24,16 @@ variable account_replication_type {
   description = "Storage Account Replication Type"
 }
 
-variable storage_account_name {
-  default = ""
-  description = "Name of the storage account"
+# Input variable: Name of Storage Account
+variable "storage_account_name" {
+  description = "The name of the storage account. Must be globally unique, length between 3 and 24 characters and contain numbers and lowercase letters only."
+  default     = "mytfstorageaccount"
+}
+
+# Input variable: Name of Storage container
+variable "container_name" {
+  description = "The name of the Blob Storage container."
+  default     = "my-terraform-state-container"
 }
 
 variable environment {

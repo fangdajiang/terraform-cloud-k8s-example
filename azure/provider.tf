@@ -1,12 +1,13 @@
+# Set the Azure Provider source and version being used
 terraform {
+  required_version = ">= 1.0.1"
+
   required_providers {
-    asurerm = {
-      source = var.TF_REQUIRED_PROVIDER_SOURCE
-      version = var.TF_REQUIRED_PROVIDER_VERSION
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.24.0"
     }
   }
-  required_version = var.TF_REQUIRED_VERSION
-  backend "azurerm" {}
 }
 provider "azurerm" {
 #  access_key = var.ALICLOUD_ACCESS_KEY
