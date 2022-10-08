@@ -1,4 +1,3 @@
-# Set the Azure Provider source and version being used
 terraform {
   required_version = ">= 1.0.1"
 
@@ -10,12 +9,7 @@ terraform {
   }
 }
 provider "azurerm" {
-#  access_key = var.ALICLOUD_ACCESS_KEY
-#  secret_key = var.ALICLOUD_SECRET_KEY
-#  region = var.ALICLOUD_REGION
-#  profile = var.ALICLOUD_PROFILE
   features {}
-  version = "=1.5.0"
   subscription_id = var.env_subscription_id
 }
 provider "kubernetes" {

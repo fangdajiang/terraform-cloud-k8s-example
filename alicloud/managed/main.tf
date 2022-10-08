@@ -70,6 +70,10 @@ resource "alicloud_cs_kubernetes_node_pool" "default" {
     value  = "test"
     effect = "NoSchedule"
   }
+  scaling_config {
+    max_size = 3
+    min_size = 1
+  }
 }
 # 节点ECS实例配置
 data "alicloud_instance_types" "default" {
